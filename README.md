@@ -197,7 +197,9 @@ You can use `trl+Shift+Esc` to open Task Manager and observe the connection prot
 
 Given that the OnePlus 8 was one of the early devices supporting WiFi 6, its limitations in heat dissipation and technology restricts it from reaching peak speeds. However, newer phones can expect to reach the full 1.2 Gbps / 150 MBps limit.
 
-The OnePlus Ace 3 can achieve peak speeds close to the WiFi 6E limit at approximately 980 Mbps (figure 1), but there might be fluctuations in speed every now and then, dropping down to 890 Mbps (figure 2).
+The OnePlus Ace 3 can achieve peak speeds close to the WiFi 6E limit at approximately 980 Mbps, but there might be fluctuations in speed every now and then, dropping down to 890 Mbps, which is faster than OnePlus 8.
+  -![inspect-speed-at-taskmanager-3.png](inspect-speed-at-taskmanager-3.png)
+  -![inspect-speed-at-taskmanager-2.png](inspect-speed-at-taskmanager-2.png)
 
 ### Further Improving Efficiency
 
