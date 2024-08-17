@@ -41,7 +41,7 @@ Therefore, the expected transfer speed is around 100 MBps / 800 Mbps, with a max
 * **Speed**: Smartphones must have at least UFS 3.0 storage chips.
 * **Stability**: The transfer protocol must be highly stable, preferably more stable than MTP.
 * **Speed**: Computers should at least support WiFi 6, ideally WiFi 6E or higher.
-* **Stability**: The transfer process must ensure proper cooling on the smartphone side to maintain both speed and stability.
+* **Stability**: The transfer process may not drain a half of the mobile phone's battery and may not cause the mobile phone to thermal throttle
 * **Speed**: Content creators should use solid-state drives (SSDs) on their computers.
 
 -----
