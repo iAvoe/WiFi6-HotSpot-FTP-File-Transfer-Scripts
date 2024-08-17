@@ -107,16 +107,16 @@ In the FTP server, the choice for Android phones is either [Servers Ultimate](ht
 - If you don't want this, or some files are written in UTF-16 characters, the solution is to compress them into .zip, .rar, or .7z files, which in most cases are less convinent
 
 **The configuration process is straightforward**:
-1. Open Servers Ultimate and enter the `Servers` menu.
-2. Click on the `+` button at the top right corner.
-3. Swipe down and click on `FTP Server`.
-4. Click on the newly added server to enter the configuration menu.
-5. Set the port number `Port` to 9999, or give it a name to differentiate from other servers.
+1. Open Servers Ultimate and enter the `Servers` menu
+2. Click on the `+` button at the top right corner
+3. Swipe down and click on `FTP Server`
+4. Click on the newly added server to enter the configuration menu
+5. Set the port number `Port` to 9999. If yo want a different port number, then change the batch script variable correspondingly is required
    - Swipe right into the `Specific` menu, where you'll see the `Encoding` field set to `Automatic`.
      - If you need to configure specific user accounts for login, swipe right to the `Users` section for configuration.
-     - The `Passive ports range` represents passive ports, which are used as a backup measure when clients cannot connect directly to the previously set active port number. No additional settings are required.
+     - The `Passive ports range` represents passive ports, which are used as a backup measure when clients is not connecting to the actual port number we've configured. No additional settings are required.
    -![Servers-ultimate-ftp-config.png](Servers-ultimate-ftp-confi.png)
-6. In the lower options bar, check "Respawn" and "Enable Partial Wake Lock" to reduce the likelihood of the process being terminated by power-saving features.
+6. **Important**: In the lower options bar, check "Respawn" and "Enable Partial Wake Lock" to reduce the likelihood of the process being terminated by power-saving features on your phone
    -![Disable-Power-Optimizations-4.png](Disable-Power-Optimizations-4.png)
 7. Save the configuration by clicking the save button at the top right corner, then return to the main menu and exit the app.
 
@@ -130,19 +130,76 @@ In the FTP server, the choice for Android phones is either [Servers Ultimate](ht
 
 -----
 
-### Windows WiFi File Sharing Permissions (Automated PS1 Script)
+### Downloading scripts
+
+#### Windows WiFi File Sharing Permissions (Automated PS1 Script)
 
 Due to Windows treating different IP addresses as new public networks, file sharing and printing are disabled.
-This issue will be resolved by a PowerShell script you will download in this repository in a moment.
+This issue will be resolved by a PowerShell script.
 
-### Adding a network location on "This PC"（Automated VBS Script）
+#### Adding a network location on "This PC"（Automated VBS Script）
 
 When you close the windows explorer window, although the connection inbetween your PC and mobile phone still exists, it will be difficult to open the explorer's window again.
 Therefore, this use case will be resolved via a Visual Basic script you will downloaded in a short moment
 - The hotspot network address of the mobile phone will change every time you start a mobile hotspot, you should right-click and delete this network address after use
 
+#### Connect to the mobile hotspot (Semi-automatic Batch Script)
 
+Due to Windows treating different IP addresses as new public networks, then the hotspot network address of the mobile phone will change every time you start a mobile hotspot, it creates a situation where it is impossible to transfer files inbetween Windows and mobile phone easily.
+
+**Note**：This batch will run the `.ps1`，`.vbs` during its execusion. If you want to change its file name, replacing the following lines with these file names should also be made：
+- `%~dp0\Windows-CreateNetworkLocation.vbs`
+- `%~dp0\Windows-NetworkProfileToPrivate-EN.ps1`
+
+**Note**: If you've configured a different port number for the FTP/HTTP server, change the following variables correspondingly:
+- `set port=9999`
+- `set http_port=8080`
+
+**Link**: [Download all scripts in this repository](Windows-Explorer-FTP-Client-EN/)
+
+The batch script will temporarily generate a text file for the previous PowerShell script to import, this is due to directly importing it as a parameter will conflict with the PowerShell script's ability to obtain administrator privileges by opening another PowerShell instance (parameters/arguments will be lost).
+
+The batch script will use the built-in `explorer.exe` in the Windows system to complete FTP access, read and write operations to achieve an experience as close to MTP as possible.
 
 -----
 
+## Start File Transfer
+
+**Note**: Please perform the following steps in order.
+
+1. **Turn off WiFi & mobile data on your phone**
+   - If you disabled "Share mobile data" when setting up your Wi-Fi hotspot previously, turning off mobile data would be optional
+2. **Turn on mobile hotpot**
+   - Image: Your phone's IP address will change to the hotpot's IP address instead of the wireless network's IP address by doing so (illustrated in a different Android FTP client)
+     -![WiFi-hotspot-on-off-refer.png](WiFi-hotspot-on-off-refer.png)
+3. **Connect computer to phone's mobile hotspot**
+   -![Windows-connect-Hotspot-1.png](Windows-connect-Hotspot-1.png)
+4. **Open Servers Ultimate -> Servers -> Run FTP server**
+5. Keep your phone screen open; otherwise, the system may terminate the FTP process for power-saving reasons, despite we've disabled all power saving features previously
+6. Run the `Windows-Explorer-FTP-Connect-EN.bat` script
+   - Read each step carefully before pressing Enter.
+   - In the second batch execution step, a PowerShell window will open to request administrator privileges.
+   - Once `explorer.exe` opens normally for FTP transfer, you're done.
+
+## Analysis of the Solution
+
+This solution is supposed to be both convenient and fast, with no dependency on WiFi specifications. Therefore, it will support future WiFi versions like WiFi 7, 8, and more, making it even faster.
+For large file transfers, you could:
+- Put your phone as close to PC's WiFi antenna as possible
+- Use SSD instead of mechanical hard drive to transfer files
+- Transfer one large file instead of multiple smaller files by contain smaller files in a `.zip`，`.rar`, `.7z`
+- Use both FTP and MTP, or FTP and adb pull/push to allow dual-route transfers, though your phone may suffer thermal throttle with this
+
+You can use `trl+Shift+Esc` to open Task Manager and observe the connection protocol and transfer speed. For example:
+-![inspect-speed-at-taskmanager.png](inspect-speed-at-taskmanager.png)
+- Shows a peak of 890 Mbps / 111.25 MBps
+
+Given that the OnePlus 8 was one of the early devices supporting WiFi 6, its limitations in heat dissipation and technology restricts it from reaching peak speeds. However, newer phones can expect to reach the full 1.2 Gbps / 150 MBps limit.
+
+The OnePlus Ace 3 can achieve peak speeds close to the WiFi 6E limit at approximately 980 Mbps (figure 1), but there might be fluctuations in speed every now and then, dropping down to 890 Mbps (figure 2).
+
+### Further Improving Efficiency
+
+- As shown in the image below.
+  -![Improvement-settings.png](Improvement-settings.png)
 
