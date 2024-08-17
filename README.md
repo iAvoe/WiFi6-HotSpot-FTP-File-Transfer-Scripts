@@ -116,7 +116,7 @@ In the FTP server, the choice for Android phones is either [Servers Ultimate](ht
    - Swipe right into the `Specific` menu, where you'll see the `Encoding` field set to `Automatic`.
      - If you need to configure specific user accounts for login, swipe right to the `Users` section for configuration.
      - The `Passive ports range` represents passive ports, which are used as a backup measure when clients is not connecting to the actual port number we've configured. No additional settings are required.
-   - ![Servers-ultimate-ftp-config.png](Servers-ultimate-ftp-confi.png)
+   - ![Servers-ultimate-ftp-config.png](Servers-ultimate-ftp-config.png)
 6. **Important**: In the lower options bar, check "Respawn" and "Enable Partial Wake Lock" to reduce the likelihood of the process being terminated by power-saving features on your phone
    - ![Disable-Power-Optimizations-4.png](Disable-Power-Optimizations-4.png)
 7. Save the configuration by clicking the save button at the top right corner, then return to the main menu and exit the app.
