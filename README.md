@@ -79,13 +79,13 @@ Other phones supporting WiFi 6 can be found at:
 - Techrankup - List of smartphones with WiFi 6 support: <https://www.techrankup.com/zh-Hans/smartphones-with-wifi-6/>
 - Huawei devices supporting WiFi 6/WiFi 6+: <https://consumer.huawei.com/cn/support/content/zh-cn00918680/>
 
-Newer Intel platforms have exclusive access to WiFi 7 netcards like [BE200NGW](https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html) and [Killer BE1750x](https://www.intel.com/content/www/us/en/products/sku/230084/intel-killer-wifi-7-be1750-xw/specifications.html).
+Newer Intel platforms have exclusive access to WiFi 7 nics like [BE200NGW](https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html) and [Killer BE1750x](https://www.intel.com/content/www/us/en/products/sku/230084/intel-killer-wifi-7-be1750-xw/specifications.html).
 - That means, you MUST use intel processors in order to use them.
 AMD's latest AM4/AM5 (x570/x670/b650) platforms has no implementation, unfortunately.
 
 **Laptops**:
 - You can find the latest wireless drivers on the motherboard or laptop manufacturer's website
-- Newer laptop models usually supports WiFi 6, or you could upgrade the WLAN network card (nic)
+- Newer laptop models usually supports WiFi 6, or you could upgrade the WLAN nics
 
 ### Configure mobile hotspot on your mobile phone
 
