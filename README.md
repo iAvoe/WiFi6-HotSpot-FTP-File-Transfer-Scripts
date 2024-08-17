@@ -204,3 +204,53 @@ The OnePlus Ace 3 can achieve peak speeds close to the WiFi 6E limit at approxim
 - As shown in the image below.
   - ![Improvement-settings.png](Improvement-settings.png)
 
+-----
+
+### Flaws
+
+* Requires administrator privileges
+* Due to aggressive power-saving strategies employed by Android phones, even if all battery optimization features are disabled, the system will kill the FTP server as soon as the screen is turned off
+* Mechanical hard drive will bottleneck transfer speeds
+* Servers Ultimate is trial software; it may not be suitable for disabling the trial unless frequent large file transfers (such as photography and recording) are required
+* Supports UTF-8 filenames but not UTF-16 (NTFS), so special cases still require renaming files with complex characters
+    + Files can be packed into `.zip` before sending, then unpacked after receiving
+    + Unless someone develops an FTP server supporting UTF-16 filenames and a mobile interface, support is unlikely
+
+## Transfer Speed List
+
+Although actual performance varies, only actual speeds are used here to determine the size of bottlenecks.
+
+### Mobile Storage Protocols (MTP limitations)
+
+"Protocol" represents the standard maximum bandwidth unrelated to actual speed. NAND flash determines actual speed, but using slower protocols than flash speed also limits maximum speed.
+
+"Restricted" indicates that the phone and computer use Media Transfer Protocol (MTP) to transfer files, which greatly affects transfer speed, typically halving it. The stability of MTP is also poor:
+
+| **Storage Protocol** | **UFS 2.2 MTP** | **UFS 3.0 MTP** | **UFS 3.1 MTP** | **UFS 4.0 MTP** |
+|--------------------|---------------|---------------|---------------|-----------------|
+| Restricted Read/Write | 500/130 MBps | 1050/205 MBps | 1050/600 MBps | 2100/900 MBps |
+| Convert One        | 4000/1040 Mbps | 8400/1640 Mbps | 8400/4800 Mbps | 16800/7200 Mbps |
+| Convert Two        | 4/1 Gbps      | 8.4/1.64 Gbps | 8.4/4.8 Gbps  | 16.8/7.2 Gbps   |
+
+### Computer Storage (Average)
+
+| **Storage Protocol** | **SATA 3.0 HDD** | **SATA 3.0 SSD** | **PCIE 3.0 SSD** | **PCIE 4.0 SSD** |
+|--------------------|-----------------|-----------------|-----------------|-----------------|
+| Claimed Read/Write | × 150/130 MBps | × 550/550 MBps | × 3500/3500 MBps | × 5000/5000 MBps |
+| Convert One        | 1200/1040 Mbps | 4400/4400 Mbps | 28000/28000 Mbps | 40000/40000 Mbps |
+| Convert Two        | 1.2/1.04 Gbps  | 4.4/4.4 Gbps   | 28/28 Gbps     | 40/40 Gbps      |
+
+### USB Transfer Speeds
+
+The "Actual Speed" in the table below represents the data transmission speed after removing overhead such as packet structure, verification, encoding, and data width measures to ensure data integrity. Generally, this occupies 25%~35% of the transmission bandwidth. Here, we multiply the claimed speed by 0.7 to get the actual speed:
+
+| **Transfer Technology** | **USB 2.0** | **USB 3.2 Gen 1 / 3.0** | **USB 3.2 Gen 2 / 3.2** | **USB 3.2 Gen 2x2** |
+|------------------------|------------|-----------------------|-----------------------|-------------------|
+| Claimed Speed          | × 480 Mbps | × 5000 Mbps           | × 10000 Mbps          | × 20000 Mbps       |
+| Actual Speed           | 336 Mbps   | 3500 Mbps             | 7000 Mbps             | 14000 Mbps         |
+| Convert One            | 0.336 Gbps | 3.5 Gbps              | 7 Gbps                | 14 Gbps            |
+| Convert Two            | 42 MBps    | 437.5 MBps            | 875 MBps              | 1750 MBps          |
+
+As you can see, the theoretical maximum upload speed from a computer to a phone is 205 MBps or 1.64 Gbps. In practice, transferring a 1GB file from a PCIE 3.0 SSD via USB 3.0 to a phone averages at 250 MBps or 2 Gbps.
+
+You can also see how terrible the real-world transfer speed is on USB 2.0.
