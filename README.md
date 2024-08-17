@@ -32,7 +32,7 @@ Therefore, the expected transfer speed is around 100 MBps / 800 Mbps, with a max
 
 - **β**: Exporting all photos and recorded footages from the mobile device to a computer, or importing it from a computer for backup, representing high sequential read/write and random read/write demands of 100-400 GB depending on your profession.
 
-- **γ**: During setting up your new smartphones, using recovery tools like TWRP to create "full-system checkpoint" backups, then transferring them to a computer for storage. This generates random and sequential read/write demands of 50-200 GB per month from the mobile device to the computer.
+- **γ**: During setting up your new smartphones, using recovery tools like TWRP to create "full-system checkpoint" backups, then transferring them to a computer for storage. This generates random and sequential read/write demands of 50-200 GB every week from the mobile device to the computer.
 
 ### Prerequisites
 
@@ -76,8 +76,8 @@ Search for your phone's model in a browser and find the "802.11" or "WiFi" speci
 - Xiaomi 12 WiFi specs: ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-3.png)
 
 Other phones supporting WiFi 6 can be found at:
-- Techrankup - List of smartphones with WiFi 6 support: <insert link URL>
-- Huawei devices supporting WiFi 6/WiFi 6+: <insert link URL>
+- Techrankup - List of smartphones with WiFi 6 support: <https://www.techrankup.com/zh-Hans/smartphones-with-wifi-6/>
+- Huawei devices supporting WiFi 6/WiFi 6+: <https://consumer.huawei.com/cn/support/content/zh-cn00918680/>
 
 Newer Intel platforms have exclusive access to WiFi 7 netcards like [BE200NGW](https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html) and [Killer BE1750x](https://www.intel.com/content/www/us/en/products/sku/230084/intel-killer-wifi-7-be1750-xw/specifications.html).
 - That means, you MUST use intel processors in order to use them.
@@ -106,8 +106,7 @@ Image: Oneplus 8's WiFi hotspot settings.。
 In the FTP server, the choice for Android phones is either [Servers Ultimate](https://play.google.com/store/apps/details?id=com.icecoldapps.serversultimate) or [Servers Ultimate Pro](https://play.google.com/store/apps/details?id=com.icecoldapps.serversultimatepro). This FTP server is not any average FTP server——it is (most likely) the only FTP server on Android that supports filenames encoded with UTF-8, which others are completly useless without this.
 - If you don't want this, or some files are written in UTF-16 characters, the solution is to compress them into .zip, .rar, or .7z files, which in most cases are less convinent
 
-The configuration process is straightforward:
-
+**The configuration process is straightforward**:
 1. Open Servers Ultimate and enter the `Servers` menu.
 2. Click on the `+` button at the top right corner.
 3. Swipe down and click on `FTP Server`.
@@ -121,12 +120,29 @@ The configuration process is straightforward:
    -![Disable-Power-Optimizations-4.png](Disable-Power-Optimizations-4.png)
 7. Save the configuration by clicking the save button at the top right corner, then return to the main menu and exit the app.
 
-### Disabling Power Optimization for Servers Ultimate on Mobile Devices
+### Disabling Battery/Power Optimization for Servers Ultimate on Mobile Devices
 
-1. Settings → Battery (→ More settings) → App battery usage → Servers Ultimate, enable "Allow full background behavior."
-2. Settings → Battery (→ More settings) → Power optimization → Servers Ultimate, select "Not optimized."
-3. Settings (→ More settings/Other settings) → Developer options → Enable "Background process limit"
+1. **Settings** → **Battery** (→ **More settings**) → **App battery usage** → In **Servers Ultimate**, enable **“Allow full background activity”**.
+2. **Settings** → **Battery** (→ **More settings**) → **Battery optimization** → In **Servers Ultimate**, select **“Don't optimize”**.
+3. **Settings** (→ **More settings/Additional settings**) → **Developer options** → Disable **“Limit background processes”**.
 
 ![Disable-Power-Optmization-1-3.png](Disable-Power-Optmization-1-3.png)
+
+-----
+
+### Windows WiFi File Sharing Permissions (Automated PS1 Script)
+
+Due to Windows treating different IP addresses as new public networks, file sharing and printing are disabled.
+This issue will be resolved by a PowerShell script you will download in this repository in a moment.
+
+### Adding a network location on "This PC"（Automated VBS Script）
+
+When you close the windows explorer window, although the connection inbetween your PC and mobile phone still exists, it will be difficult to open the explorer's window again.
+Therefore, this use case will be resolved via a Visual Basic script you will downloaded in a short moment
+- The hotspot network address of the mobile phone will change every time you start a mobile hotspot, you should right-click and delete this network address after use
+
+
+
+-----
 
 
