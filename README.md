@@ -116,9 +116,9 @@ In the FTP server, the choice for Android phones is either [Servers Ultimate](ht
    - Swipe right into the `Specific` menu, where you'll see the `Encoding` field set to `Automatic`.
      - If you need to configure specific user accounts for login, swipe right to the `Users` section for configuration.
      - The `Passive ports range` represents passive ports, which are used as a backup measure when clients is not connecting to the actual port number we've configured. No additional settings are required.
-   -![Servers-ultimate-ftp-config.png](Servers-ultimate-ftp-confi.png)
+   - ![Servers-ultimate-ftp-config.png](Servers-ultimate-ftp-confi.png)
 6. **Important**: In the lower options bar, check "Respawn" and "Enable Partial Wake Lock" to reduce the likelihood of the process being terminated by power-saving features on your phone
-   -![Disable-Power-Optimizations-4.png](Disable-Power-Optimizations-4.png)
+   - ![Disable-Power-Optimizations-4.png](Disable-Power-Optimizations-4.png)
 7. Save the configuration by clicking the save button at the top right corner, then return to the main menu and exit the app.
 
 ### Disabling Battery/Power Optimization for Servers Ultimate on Mobile Devices
@@ -172,9 +172,9 @@ The batch script will use the built-in `explorer.exe` in the Windows system to c
    - If you disabled "Share mobile data" when setting up your Wi-Fi hotspot previously, turning off mobile data would be optional
 2. **Turn on mobile hotpot**
    - Image: Your phone's IP address will change to the hotpot's IP address instead of the wireless network's IP address by doing so (illustrated in a different Android FTP client)
-     -![WiFi-hotspot-on-off-refer.png](WiFi-hotspot-on-off-refer.png)
+     - ![WiFi-hotspot-on-off-refer.png](WiFi-hotspot-on-off-refer.png)
 3. **Connect computer to phone's mobile hotspot**
-   -![Windows-connect-Hotspot-1.png](Windows-connect-Hotspot-1.png)
+   - ![Windows-connect-Hotspot-1.png](Windows-connect-Hotspot-1.png)
 4. **Open Servers Ultimate -> Servers -> Run FTP server**
 5. Keep your phone screen open; otherwise, the system may terminate the FTP process for power-saving reasons, despite we've disabled all power saving features previously
 6. Run the `Windows-Explorer-FTP-Connect-EN.bat` script
@@ -192,7 +192,7 @@ For large file transfers, you could:
 - Use both FTP and MTP, or FTP and adb pull/push to allow dual-route transfers, though your phone may suffer thermal throttle with this
 
 You can use `trl+Shift+Esc` to open Task Manager and observe the connection protocol and transfer speed. For example:
--![inspect-speed-at-taskmanager.png](inspect-speed-at-taskmanager.png)
+- ![inspect-speed-at-taskmanager.png](inspect-speed-at-taskmanager.png)
 - Shows a peak of 890 Mbps / 111.25 MBps
 
 Given that the OnePlus 8 was one of the early devices supporting WiFi 6, its limitations in heat dissipation and technology restricts it from reaching peak speeds. However, newer phones can expect to reach the full 1.2 Gbps / 150 MBps limit.
@@ -202,5 +202,5 @@ The OnePlus Ace 3 can achieve peak speeds close to the WiFi 6E limit at approxim
 ### Further Improving Efficiency
 
 - As shown in the image below.
-  -![Improvement-settings.png](Improvement-settings.png)
+  - ![Improvement-settings.png](Improvement-settings.png)
 
