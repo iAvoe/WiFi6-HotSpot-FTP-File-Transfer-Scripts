@@ -1,4 +1,4 @@
-# Smartphone Industry Traps: A Simple IT Solution for Faster Data Transfer
+This solution was originally written by me and then translated into English by myself. [See Original（中文原文）](https://nazorip.site/archives/1387/)
 
 The smartphone industry has matured, but even the latest products in 2024 are filled with USB 2.0 devices. If you accidentally fall prey to screen, processor, memory, or battery technology, how would you breakthrough this massive limitation? This article will take on this challenge and provide a simple IT solution. This solution must be as simple as possible, without requiring a pre-installed runtime environment, and the operation logic should be as close as possible to file transfer over a data cable (MTP).
 
@@ -70,7 +70,7 @@ Search for your phone's model in a browser and find the "802.11" or "WiFi" speci
 - "802.11ax+", "axE", "WiFi 6+"，"WiFi 6E" states that your device supports WiFi 6 Extended（basically faster than WiFi 6）
 - "802.11be"，"be"，"WiFi 7" states that your device supports WiFi 7
 
-Example images:
+**Example image for phones**:
 - Oneplus Ace 3 WiFi specs: ![check-WiFi-Specs-at-manufacturer.png](check-WiFi-Specs-at-manufacturer.png)
 - Oneplus 8 WiFi specs: ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-2.png)
 - Xiaomi 12 WiFi specs: ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-3.png)
@@ -79,4 +79,54 @@ Other phones supporting WiFi 6 can be found at:
 - Techrankup - List of smartphones with WiFi 6 support: <insert link URL>
 - Huawei devices supporting WiFi 6/WiFi 6+: <insert link URL>
 
-Newer Intel platforms have exclusive access to WiFi 7 netcards like BE200NGW and Killer BE1750x. Currently, no WiFi 7 solutions exist for AMD's latest x670/b650 platforms. You can find the latest wireless drivers on the motherboard or laptop manufacturer's website.
+Newer Intel platforms have exclusive access to WiFi 7 netcards like [BE200NGW](https://www.intel.com/content/www/us/en/products/sku/230078/intel-wifi-7-be200/specifications.html) and [Killer BE1750x](https://www.intel.com/content/www/us/en/products/sku/230084/intel-killer-wifi-7-be1750-xw/specifications.html).
+- That means, you MUST use intel processors in order to use them.
+AMD's latest AM4/AM5 (x570/x670/b650) platforms has no implementation, unfortunately.
+
+**Laptops**:
+- You can find the latest wireless drivers on the motherboard or laptop manufacturer's website
+- Newer laptop models usually supports WiFi 6, or you could upgrade the WLAN network card (nic)
+
+### Configure mobile hotspot on your mobile phone
+
+1. Configure a familiar hotspot name, this will be the SSID of your hotspot WLAN
+2. Disable "Mobile data network sharing", "Bluetooth network sharing", "USB network sharing", and "WiFi network sharing"
+3. Set the signal frequency to 5.0 GHz or the highest supported frequency by both phone and computer
+  - This scenario assumes the phone is placed near the computer's WLAN antenna, which is why you use the highest frequency supported by the computer, even if its not recommended in a spec sheet
+4. Enable "WiFi 6 hotspot" or the highest WiFi version supported
+
+Image: Oneplus 8's WiFi hotspot settings.。
+![Android-Hotspot-conf.png](Android-Hotspot-conf.png)
+
+**Note**: From my investigation, it appears that WiFi 6 hotspot option is an Android feature, therefore as long as your phone has WiFi 6/6E support, then you should have this option available
+**Note**: Currently, Windows only support creating up to WiFi 5 / 802.11ac hotspots.
+
+### Mobile Configuration of FTP Server
+
+In the FTP server, the choice for Android phones is either [Servers Ultimate](https://play.google.com/store/apps/details?id=com.icecoldapps.serversultimate) or [Servers Ultimate Pro](https://play.google.com/store/apps/details?id=com.icecoldapps.serversultimatepro). This FTP server is not any average FTP server——it is (most likely) the only FTP server on Android that supports filenames encoded with UTF-8, which others are completly useless without this.
+- If you don't want this, or some files are written in UTF-16 characters, the solution is to compress them into .zip, .rar, or .7z files, which in most cases are less convinent
+
+The configuration process is straightforward:
+
+1. Open Servers Ultimate and enter the `Servers` menu.
+2. Click on the `+` button at the top right corner.
+3. Swipe down and click on `FTP Server`.
+4. Click on the newly added server to enter the configuration menu.
+5. Set the port number `Port` to 9999, or give it a name to differentiate from other servers.
+   - Swipe right into the `Specific` menu, where you'll see the `Encoding` field set to `Automatic`.
+     - If you need to configure specific user accounts for login, swipe right to the `Users` section for configuration.
+     - The `Passive ports range` represents passive ports, which are used as a backup measure when clients cannot connect directly to the previously set active port number. No additional settings are required.
+   -![Servers-ultimate-ftp-config.png](Servers-ultimate-ftp-confi.png)
+6. In the lower options bar, check "Respawn" and "Enable Partial Wake Lock" to reduce the likelihood of the process being terminated by power-saving features.
+   -![Disable-Power-Optimizations-4.png](Disable-Power-Optimizations-4.png)
+7. Save the configuration by clicking the save button at the top right corner, then return to the main menu and exit the app.
+
+### Disabling Power Optimization for Servers Ultimate on Mobile Devices
+
+1. Settings → Battery (→ More settings) → App battery usage → Servers Ultimate, enable "Allow full background behavior."
+2. Settings → Battery (→ More settings) → Power optimization → Servers Ultimate, select "Not optimized."
+3. Settings (→ More settings/Other settings) → Developer options → Enable "Background process limit"
+
+![Disable-Power-Optmization-1-3.png](Disable-Power-Optmization-1-3.png)
+
+
