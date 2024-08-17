@@ -71,9 +71,9 @@ Search for your phone's model in a browser and find the "802.11" or "WiFi" speci
 - "802.11be"，"be"，"WiFi 7" states that your device supports WiFi 7
 
 **Example image for phones**:
-- Oneplus Ace 3 WiFi specs: ![check-WiFi-Specs-at-manufacturer.png](check-WiFi-Specs-at-manufacturer.png)
-- Oneplus 8 WiFi specs: ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-2.png)
-- Xiaomi 12 WiFi specs: ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-3.png)
+- Oneplus Ace 3 WiFi specs (to be replaced to English): ![check-WiFi-Specs-at-manufacturer.png](check-WiFi-Specs-at-manufacturer.png)
+- Oneplus 8 WiFi specs (to be replaced to English): ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-2.png)
+- Xiaomi 12 WiFi specs (to be replaced to English): ![check-WiFi-Specs-at-manufacturer-2.png](check-WiFi-Specs-at-manufacturer-3.png)
 
 Other phones supporting WiFi 6 can be found at:
 - Techrankup - List of smartphones with WiFi 6 support: <https://www.techrankup.com/zh-Hans/smartphones-with-wifi-6/>
@@ -95,7 +95,8 @@ AMD's latest AM4/AM5 (x570/x670/b650) platforms has no implementation, unfortuna
   - This scenario assumes the phone is placed near the computer's WLAN antenna, which is why you use the highest frequency supported by the computer, even if its not recommended in a spec sheet
 4. Enable "WiFi 6 hotspot" or the highest WiFi version supported
 
-Image: Oneplus 8's WiFi hotspot settings.。
+**Image**: Oneplus 8's WiFi hotspot settings (to be replaced to English)
+
 ![Android-Hotspot-conf.png](Android-Hotspot-conf.png)
 
 **Note**: From my investigation, it appears that WiFi 6 hotspot option is an Android feature, therefore as long as your phone has WiFi 6/6E support, then you should have this option available
