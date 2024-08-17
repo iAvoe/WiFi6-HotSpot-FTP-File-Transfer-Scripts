@@ -32,7 +32,7 @@ Therefore, the expected transfer speed is around 100 MBps / 800 Mbps, with a max
 
 - **β**: Exporting all photos and recorded footages from the mobile device to a computer, or importing it from a computer for backup, representing high sequential read/write and random read/write demands of 100-400 GB depending on your profession.
 
-- **γ**: During setting up your new smartphones, using recovery tools like TWRP to create "full-system checkpoint" backups, then transferring them to a computer for storage. This generates random and sequential read/write demands of 50-200 GB every week from the mobile device to the computer.
+- **γ**: During setting up your new smartphones, using recovery tools like TWRP to create "full-system checkpoint" backups, then transferring them to a computer for storage. This generates random and sequential read/write demands of 50-90 GB every week from the mobile device to the computer.
 
 ### Prerequisites
 
@@ -50,7 +50,7 @@ Therefore, the expected transfer speed is around 100 MBps / 800 Mbps, with a max
 
 To minimize lengthy analysis of transmission speed, this article will present the tutorial steps upfront and analyze them later.
 
-### Overview of the following steps
+### Steps Overview
 
 1. Check your phone's highest supported WiFi specification.
 2. Ensure that your computer's motherboard supports the latest WiFi standard and update its wireless network card (and its driver) if necessary.
