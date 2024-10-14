@@ -97,7 +97,7 @@ AMD's latest AM4/AM5 (x570/x670/b650) platforms has no implementation, unfortuna
 
 **Image**: Oneplus 8's WiFi hotspot settings (to be replaced to English)
 
-![Android-Hotspot-conf.png](Android-Hotspot-conf.png)
+![Android-Hotspot-conf.png](Android-Hotspot-conf-en.png)
 
 **Note**: From my investigation, it appears that WiFi 6 hotspot option is an Android feature, therefore as long as your phone has WiFi 6/6E support, then you should have this option available
 **Note**: Currently, Windows only support creating up to WiFi 5 / 802.11ac hotspots.
