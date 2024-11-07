@@ -12,6 +12,8 @@ set store=""
 echo:
 echo 1. Check if you're only connected to a hotspot network. Nothing will be displayed of not connected; press Ctrl+C to exit
 echo:
+echo 2. Confirm your keyboard/input method has switched back to ENG, otherwise you won't be able to input y/n
+echo:
 
 netsh wlan show interface | findstr /C:"Description" /C:"SSID" /C:"Radio" /C:"Transmit" /C:"Receive" /C:"Signal" /C:"State"
 echo:
@@ -146,7 +148,21 @@ if /i %store%==y (
     echo:
     echo 6. After transferring files, disconnect the WLAN first and then shut down other services
     echo    Since each time you open a mobile hotspot, the phone's network address changes, delete the network address!wlan_ssid! after use.
-    timeout /t 77
 )
+
+echo:
+echo Explorer window for FTP will eventually open automatically，please wait for 50~90 second.
+echo:
+echo 1 extra step to be done after file transfer completes, please complete transfer and then press Enter to continue...
+pause
+
+REM 5. Deleting current WiFi Profile
+echo Deleting WiFi profile for current SSID, this prevents a long delay to open FTP explorer window next time
+netsh wlan delete profile name="!wlan_ssid!"
+
+echo:
+echo If you have any other WiFi Hotspot logged below, you will suffer the same long delay when opening any FTP explorer program window. You can delete these profiles with: netsh wlan delete profile name="SSID-Name"
+netsh wlan show profiles
+pause
 
 :End
